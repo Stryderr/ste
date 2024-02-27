@@ -1,4 +1,28 @@
-<button mat-raised-button>hello general kenobi</button>
-
-
-  <div>message</div>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Landing Page</title>
+  <link rel="stylesheet" type="text/css" href="app.component.css">
+</head>
+<body>
+  <router-outlet></router-outlet>
+  <div class="header">
+    <h1>Welcome to Our Website!</h1>
+  <div class="nav">
+    <div class="nav-left">
+      <a routerLink="/">Home</a>
+      <a routerLink="/farm">Farm</a> <!-- Change made here -->
+      <a routerLink="/calendar">Calendar</a>
+      <a routerLink="/contacts">Contacts</a>
+      <a routerLink="/food">Food</a> <!-- Change made here -->
+    </div>
+    <div class="nav-right">
+      <a href="#signin">Sign In</a>
+    </div>
+  </div>
+  </div>
+  <div class="content">
+    <p>This is a simple landing page.</p>
+  </div>
+</body>
+</html>
