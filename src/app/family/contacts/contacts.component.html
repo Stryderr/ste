@@ -1,4 +1,26 @@
 <div class="main-content">
-    <h2>Contacts</h2>
-    <p>Here is where you can find our contact information.</p>
+
+    <!-- contacts.component.html -->
+    <div class="card-container">
+        <div *ngFor="let contact of contacts" class="card" (click)="selectContact(contact)">
+            <h1>{{contact.name}}</h1>
+            <p class="title">{{contact.title}}</p>
+            <p>{{contact.description}}</p>
+        </div>
+    </div>
+
+    <!-- contacts.component.html -->
+    <div *ngIf="selectedContact" class="popup">
+        <h1>{{selectedContact.name}}</h1>
+        <p class="title">{{selectedContact.title}}</p>
+        <p>{{selectedContact.description}}</p>
+        <p>Address: {{selectedContact.address.street}}, {{selectedContact.address.city}}, {{selectedContact.address.state}} {{selectedContact.address.zip}}</p>
+        <p>Phone Number: {{selectedContact.phoneNumber}}</p>
+        <p>Email: {{selectedContact.email}}</p>
+        <p>Mother: {{selectedContact.mother?.name}}</p>
+        <p>Father: {{selectedContact.father?.name}}</p>
+        <p>Children: <span *ngFor="let child of selectedContact.children">{{child.name}}, </span></p>
+        <p>Siblings: <span *ngFor="let sibling of selectedContact.siblings">{{sibling.name}}, </span></p>
+        <button (click)="closePopup()">Close</button>
+    </div>
 </div>
