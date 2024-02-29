@@ -1,5 +1,37 @@
 <div class="main-content">
-  <h2>Calendar</h2>
-  <p>Here is where you can find our calendar of events.</p>
-  <p>Our calendar is updated regularly, so check back often!</p>
+  <div (click)="closeDialog()" class="popup" *ngIf="selectedEvent">
+    <div class="event-dialog" (click)="$event.stopPropagation()">
+      <h2>
+        <span>Title:</span>
+        <span *ngIf="!isEditing">{{ selectedEvent.title }}</span>
+        <input *ngIf="isEditing" [(ngModel)]="selectedEvent.title">
+      </h2>
+      <p>
+        <span>Start Time:</span>
+        <span *ngIf="!isEditing">{{ selectedEvent.start | date }}</span>
+        <input *ngIf="isEditing" [(ngModel)]="selectedEvent.start" type="date">
+      </p>
+      <p>
+        <span>End Time:</span>
+        <span *ngIf="!isEditing">{{ selectedEvent.end | date }}</span>
+        <input *ngIf="isEditing" [(ngModel)]="selectedEvent.end" type="date">
+      </p>
+      <p>
+        <span>All Day:</span>
+        <span *ngIf="!isEditing">{{ selectedEvent.allDay }}</span>
+        <input *ngIf="isEditing" [(ngModel)]="selectedEvent.allDay" type="checkbox">
+      </p>
+      <div class="button-container">
+        <button class="close-button" (click)="closeDialog()">Close</button>
+        <button class="edit-button" (click)="enableEditing()" *ngIf="!isEditing">Edit</button>
+        <button class="update-button" (click)="updateEvent()" *ngIf="isEditing">Update</button>
+      </div>
+    </div>
+  </div>
+
+  <mwl-calendar-month-view
+    [viewDate]="viewDate"
+    [events]="events"
+    (eventClicked)="handleEventClick($event.event)">
+  </mwl-calendar-month-view>
 </div>
