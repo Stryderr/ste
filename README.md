@@ -2,6 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
 
+## Local Dev Environment Configuration (Windows)
+
+* Install [nvm for windows](https://github.com/coreybutler/nvm-windows) (soon to be replaced by [Runtime](https://github.com/coreybutler/nvm-windows/wiki/Runtime))
+    * `nvm install lts`
+    * `nvm use lts`
+    * `npm i`
+* For all other commands in this guide, preface the command with `npx ` to ensure you are using the angular version from this project, as opposed to any other version that might be installed globally on your machine.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
